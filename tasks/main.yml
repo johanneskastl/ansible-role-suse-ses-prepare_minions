@@ -5,7 +5,7 @@
   package:
     name: "{{ salt_minion_packages }}"
 
-- name: "Add salt master to /etc/salt/minion.d/master.conf"
+- name: "Add salt master to /etc/hosts"
   blockinfile:
     path: "/etc/hosts"
     block: |
