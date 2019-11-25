@@ -23,6 +23,16 @@
   notify:
     - "Restart salt-minion service"
 
+- name: "Add deepsea to /etc/salt/grains"
+  template:
+    src: "etc_salt_grains.j2"
+    dest: "/etc/salt/grains"
+    owner: "root"
+    group: "root"
+    mode: "0644"
+  notify:
+    - "Restart salt-minion service"
+
 - name: "Start salt-minion service"
   service:
     name: "{{ salt_minion_service }}"
