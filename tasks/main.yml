@@ -1,0 +1,10 @@
+---
+# suse-ses-prepare_minions/tasks/main.yml
+
+- name: "Add salt master to /etc/salt/minion.d/master.conf"
+  blockinfile:
+    path: "/etc/hosts"
+    block: |
+      {{ hostvars[item]['internal_ip'] | default( hostvars[item]['ansible_default_ipv4']['address'] ) }} {{ item }} {{ item }}.{{ domain_name }}
+    marker: "# {mark} ANSIBLE MANAGED BLOCK {{ item }}"
+  with_items: "{{ groups['admin_node'] }}"
