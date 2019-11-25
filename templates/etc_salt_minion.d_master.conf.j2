@@ -1,0 +1,3 @@
+#
+{# add internal IP of first member of admin_node group #}
+master: {{ hostvars[groups['admin_node'][0]]['internal_ip'] | default( hostvars[groups['admin_node'][0]]]['ansible_default_ipv4']['address'] ) }}
