@@ -11,9 +11,9 @@ None.
 Role Variables
 --------------
 
-`domain_name`: Domain name to use for the entries in `/etc/hosts`.
-`salt_minion_packages`: List of packages needed for a salt minion.
-`salt_minion_service`: Name of the salt minion service, by default `salt-minion`.
+- `domain_name`: Domain name to use for the entries in `/etc/hosts`.
+- `salt_minion_packages`: List of packages needed for a salt minion.
+- `salt_minion_service`: Name of the salt minion service, by default `salt-minion`.
 
 Dependencies
 ------------
