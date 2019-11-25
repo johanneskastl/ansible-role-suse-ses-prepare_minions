@@ -1,6 +1,10 @@
 ---
 # suse-ses-prepare_minions/tasks/main.yml
 
+- name: "Install salt-minion package(s)"
+  package:
+    name: "{{ salt_minion_packages }}"
+
 - name: "Add salt master to /etc/salt/minion.d/master.conf"
   blockinfile:
     path: "/etc/hosts"

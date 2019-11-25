@@ -2,3 +2,6 @@
 # suse-ses-prepare_minions/defaults/main.yml
 
 domain_name: 'training.b1-systems.de'
+
+salt_minion_packages:
+  - salt-minion
