@@ -22,3 +22,9 @@
     mode: "0644"
   notify:
     - "Restart salt-minion service"
+
+- name: "Start salt-minion service"
+  service:
+    name: "{{ salt_minion_service }}"
+    state: "started"
+    enabled: true
