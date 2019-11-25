@@ -1,0 +1,7 @@
+---
+# suse-ses-prepare_minions/handlers/main.yml
+
+- name: "Restart salt-minion service"
+  service:
+    name: "{{ salt_minion_service }}"
+    state: "restarted"
