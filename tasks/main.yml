@@ -10,7 +10,7 @@
     path: "/etc/hosts"
     block: |
       {{ hostvars[item]['internal_ip'] | default( hostvars[item]['ansible_default_ipv4']['address'] ) }} {{ item }} {{ item }}.{{ domain_name }}
-    marker: "# {mark} ANSIBLE MANAGED BLOCK {{ item }}"
+    marker: "# {mark} ANSIBLE MANAGED BLOCK"
   with_items: "{{ groups['admin_node'] }}"
 
 - name: "Add salt master IP to /etc/salt/minion.d/master.conf"
