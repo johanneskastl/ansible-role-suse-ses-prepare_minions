@@ -1,3 +1,5 @@
+![Ansible Lint](https://github.com/johanneskastl/ansible-role-suse-ses-prepare_minions/workflows/Ansible%20Lint/badge.svg)
+
 suse-ses-prepare_minions
 =========
 
