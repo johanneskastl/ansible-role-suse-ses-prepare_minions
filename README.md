@@ -27,7 +27,7 @@ Example Playbook
 
     - hosts: servers
       roles:
-         - { role: johanneskastl.suse-ses-prepare_minions }
+         - { role: 'johanneskastl.suse-ses-prepare_minions' }
 
 License
 -------
