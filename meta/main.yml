@@ -1,5 +1,6 @@
 galaxy_info:
   role_name: 'suse-ses-prepare_minions'
+  namespace: 'johanneskastl'
   author: 'Johannes Kastl'
   description: 'Prepare the minions in a SUSE Enterprise Storage Cluster'
   company: 'B1 Systems GmbH'
