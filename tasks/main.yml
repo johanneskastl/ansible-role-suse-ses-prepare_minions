@@ -12,7 +12,7 @@
     # or a missing FQDN will not be fixed, but a duplicate line inserted...
     # regexp: "^{{ internal_ip | default( ansible_default_ipv4['address'] ) }}.*{{ inventory_hostname }}.*{{ inventory_hostname }}.{{ domain_name }}"
     regexp: "{{ item }}"
-    line: "{{ hostvars[item]['internal_ip'] | default( hostvars[item]['ansible_default_ipv4']['address'] ) }} {{ item }} {{ item }}.{{ domain_name }}"
+    line: "{{ hostvars[item]['internal_ip'] | default(hostvars[item]['ansible_default_ipv4']['address']) }} {{ item }} {{ item }}.{{ domain_name }}"
   with_items: "{{ groups['admin_node'] }}"
 
 - name: "Add salt master IP to /etc/salt/minion.d/master.conf"
