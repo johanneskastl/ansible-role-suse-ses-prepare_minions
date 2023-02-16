@@ -2,11 +2,11 @@
 # suse-ses-prepare_minions/tasks/main.yml
 
 - name: "Install salt-minion package(s)"
-  package:
+  ansible.builtin.package:
     name: "{{ salt_minion_packages }}"
 
 - name: "Add salt master to /etc/hosts"
-  lineinfile:
+  ansible.builtin.lineinfile:
     path: "/etc/hosts"
     # better not match the exact line, otherwise an additional space will result in duplicate lines
     # or a missing FQDN will not be fixed, but a duplicate line inserted...
@@ -16,7 +16,7 @@
   with_items: "{{ groups['admin_node'] }}"
 
 - name: "Add salt master IP to /etc/salt/minion.d/master.conf"
-  template:
+  ansible.builtin.template:
     src: "etc_salt_minion.d_master.conf.j2"
     dest: "/etc/salt/minion.d/master.conf"
     owner: "root"
@@ -26,7 +26,7 @@
     - "Restart salt-minion service"
 
 - name: "Add hostname to /etc/salt/minion_id"
-  template:
+  ansible.builtin.template:
     src: "etc_salt_minion_id.j2"
     dest: "/etc/salt/minion_id"
     owner: "root"
@@ -36,7 +36,7 @@
     - "Restart salt-minion service"
 
 - name: "Add deepsea to /etc/salt/grains"
-  template:
+  ansible.builtin.template:
     src: "etc_salt_grains.j2"
     dest: "/etc/salt/grains"
     owner: "root"
@@ -46,7 +46,7 @@
     - "Restart salt-minion service"
 
 - name: "Start salt-minion service"
-  service:
+  ansible.builtin.service:
     name: "{{ salt_minion_service }}"
     state: "started"
     enabled: true
