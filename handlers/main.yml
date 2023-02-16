@@ -2,6 +2,6 @@
 # suse-ses-prepare_minions/handlers/main.yml
 
 - name: "Restart salt-minion service"
-  service:
+  ansible.builtin.service:
     name: "{{ salt_minion_service }}"
     state: "restarted"
